@@ -7,7 +7,7 @@ const port = 8000;
 app.use(cors());
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://vue-protfhut-git-main-hut5830s-projects.vercel.app",
         methods: "GET,POST,PUT,DELETE",
         allowedHeaders: "Content-Type,Authorization",
     })
