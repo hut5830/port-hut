@@ -1,5 +1,6 @@
 const express = require(`express`);
 const cors = require("cors");
+const fileupload = require('express-fileupload');
 const app = express();
 const port = 8000;
 
@@ -11,7 +12,16 @@ app.use(
         allowedHeaders: "Content-Type,Authorization",
     })
 );
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(fileupload());
+const basePath = `/portfolio`;
+const baseController = require(`./Main/router/router`);
+
+app.use(basePath, baseController);
+
 app.get(`/testapideploy`, (req, res) => {
+    console.log('whhhh');
     res.send(
         {
             status: 200,
