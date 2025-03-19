@@ -26,7 +26,7 @@ module.exports = {
 
             const [result] = await db.query(`
                 SELECT ROW_NUMBER() OVER(ORDER BY tp.ID_Auto ASC)as row_num,
-                    tup.ID_AutoUser , tu.ID_Auto ,
+                    tp.ID_Auto , tup.ID_AutoUser , tu.ID_Auto ,
                     tp.Program_Name ,tp.Program_Description 
                     FROM mydb.TBL_User_Programs tup
                 INNER JOIN mydb.TBL_User tu ON tu.ID_Auto = tup.ID_AutoUser 
