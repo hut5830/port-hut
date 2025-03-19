@@ -4,15 +4,14 @@ const fileupload = require('express-fileupload');
 const app = express();
 const port = 8000;
 
-const allowedOrigins = ['http://localhost:3000', 'https://vue-protfhut-git-main-hut5830s-projects.vercel.app'];
 app.use(cors({
     origin: '*', // For testing (not recommended for production)
 }));
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileupload());
+
 const basePath = `/portfolio`;
 const baseController = require(`./Main/router/router`);
 
