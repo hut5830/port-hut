@@ -7,7 +7,6 @@ module.exports = {
             const [result] = await db.query(`
                 SELECT * FROM TBL_User WHERE Username = '${req.body.Username}'
                 `)
-            console.log(result);
             res.status(200).send(result);
         }
         catch (error) {
@@ -33,7 +32,6 @@ module.exports = {
                 LEFT JOIN mydb.TBL_Programs tp ON tup.ID_AutoProgram = tp.ID_Auto 
                 WHERE 1=1 ${where_col}
                 `)
-            console.log(result);
             res.status(200).send(result);
         }
         catch (error) {
@@ -58,9 +56,8 @@ module.exports = {
                     FROM mydb.TBL_User_Detail tud 
                 INNER JOIN mydb.TBL_User tu ON tud.ID_AutoUser = tu.ID_Auto 
                 LEFT JOIN mydb.TBL_Programs tp ON tud.ID_AutoProgram  = tp.ID_Auto 
-                WHERE 1=1 ${where_col}
+                WHERE 1=1 AND tp.ID_Auto = '${body.ID_Auto || 0}' ${where_col}
                 `)
-            console.log(result);
             res.status(200).send(result);
         }
         catch (error) {
