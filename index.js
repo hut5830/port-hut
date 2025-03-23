@@ -2,7 +2,7 @@ const express = require(`express`);
 const cors = require("cors");
 const fileupload = require('express-fileupload');
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 app.use(cors({
     origin: '*', // For testing (not recommended for production)
