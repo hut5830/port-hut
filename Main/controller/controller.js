@@ -75,14 +75,7 @@ module.exports = {
             }
 
             const [result] = await db.query(`
-                SELECT ROW_NUMBER() OVER(ORDER BY tud.ID_Auto ASC)as row_num,
-                    tu.ID_Auto ,tp.ID_Auto ,tp.Program_Name ,
-                    tud.User_Detail ,tud.User_Description ,
-                    tu.Firstname ,tu.Lastname ,tu.Nickname 
-                    FROM mydb.TBL_User_Detail tud 
-                INNER JOIN mydb.TBL_User tu ON tud.ID_AutoUser = tu.ID_Auto 
-                LEFT JOIN mydb.TBL_Programs tp ON tud.ID_AutoProgram  = tp.ID_Auto 
-                WHERE 1=1 AND tp.ID_Auto = '${body.ID_Auto || 0}' ${where_col}
+                SELECT * FROM sgn_comp.population_and_demography pad2
                 `)
             res.status(200).send(result);
         }
