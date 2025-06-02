@@ -4,7 +4,7 @@ const pool = mysql.createPool({
     host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
     port: 4000,
     user: '47L3QtqC6fiD1br.root',
-    password: '9JoATAxkDYMZNftV',
+    password: 'ae4CE1YJLEYID5ng',
     database: 'mydb',
     ssl: {
         rejectUnauthorized: true // For SSL, TiDB requires secure connection
